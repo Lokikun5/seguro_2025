@@ -1,0 +1,138 @@
+.inspirationc-container {
+  h1 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 10rem;
+  }
+
+  aside {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+    padding: 2rem;
+
+    p {
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .word.accueil {
+      grid-column: 1;
+      grid-row: 1;
+      animation-delay: 0.5s;
+    }
+
+    .word.mettre {
+      grid-column: 2;
+      grid-row: 1;
+      animation-delay: 1s;
+    }
+
+    .word.reveler {
+      grid-column: 3;
+      grid-row: 1;
+      animation-delay: 1.5s;
+    }
+
+    .logo {
+      grid-column: 2;
+      grid-row: 2;
+      animation-delay: 2s;
+      max-width: 100%; /* For responsive image scaling */
+    }
+
+    .word.se-donner {
+      grid-column: 1;
+      grid-row: 2;
+      animation-delay: 2.5s;
+    }
+
+    .word.donner-voir {
+      grid-column: 3;
+      grid-row: 2;
+      animation-delay: 3s;
+    }
+
+    .word.recueillir {
+      grid-column: 1;
+      grid-row: 3;
+      animation-delay: 3.5s;
+    }
+
+    .word.partager {
+      grid-column: 2;
+      grid-row: 3;
+      animation-delay: 4s;
+    }
+
+    .word.refuge {
+      grid-column: 3;
+      grid-row: 3;
+      animation-delay: 4.5s;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inspiration-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+
+  .image-container, .image-container2 {
+    position: relative;
+    display: flex;
+    align-items: flex-start; /* Align the images at the top */
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 1rem; /* Add space between images */
+  }
+
+  .image-two {
+    align-self: flex-end; /* Align the second image to the bottom */
+  }
+
+  .caption {
+    position: absolute;
+    top: 70%; /* Center vertically */
+    left: calc(100% + -11rem); /* Position to the right of the first image */
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+    background-color: white;
+    padding: 5px;
+  }
+}
+
+.image-container2 img {
+  margin-right: 1rem; /* Add space between images in the second section */
+}
+
+/* Ensure both sections have the same alignment and margin */
+.image-container2 {
+  align-items: flex-start; /* Align the second section's images the same way */
+}
+
+
+
+

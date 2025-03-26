@@ -1,0 +1,92 @@
+.admin-layout {
+  display: flex;
+  padding-top: 80px; // correspond à la hauteur de ton header
+  min-height: 100vh;
+}
+
+.sidebar-admin {
+  width: 220px;
+  background: #f8f9fa;
+  padding: 2rem 1rem;
+  height: calc(100vh - 80px);
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  border-right: 1px solid #ddd;
+
+  .admin-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 1rem 0;
+      border-radius: 6px;
+      overflow: hidden;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.2s ease, color 0.2s ease;
+
+        .icon {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          background-color: #e6e6e6;
+        }
+      }
+
+      &.active a {
+        background-color: #007bff;
+        color: white;
+
+        .icon {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.admin-content {
+  h1{
+    margin-top: 50px;
+    
+  }
+  flex: 1;
+  padding: 2rem;
+}
+
+.admin-dashboard {
+  padding-top: 120px; /* Ajuste selon la hauteur réelle de ton header */
+  padding-left: 240px; /* Laisse la place à la sidebar */
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 200px); /* Pour que le footer ne remonte pas trop */
+}
+
+.admin-media-page {
+  background: #fff;
+}
+
+.media-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.vh30 {
+  height: 30vh;
+}
+.vh20 {
+  height: 20vh;
+}

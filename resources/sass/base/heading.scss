@@ -1,0 +1,49 @@
+@import "../base/variable";
+@import "../base/colors.scss";
+h1{
+  font-family: 'Raleway',sans-serif;
+  font-size: $titleTexte;
+  letter-spacing: $letterSpacing;
+}
+
+h2{
+  font-size: $titleSectionTexte;
+  font-family: 'Roboto-Bold',sans-serif;
+  letter-spacing: $letterSpacing;
+}
+
+p{
+  font-family: 'Raleway', sans-serif;
+  font-size: $smallTexte;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.base-texte{
+  font-size: $baseTexte;
+}
+.color-focus{
+  color: $focusColor;
+  font-weight: 800;
+
+}
+
+.color-focus2{
+  color: $seguroColor1;
+  font-weight: 800;
+
+}
+@media (max-width: 720px) {
+  p{
+   padding: 1rem;
+    text-align: center;
+  }
+  h1{
+    font-size: 1.5rem;
+  }
+  h2{
+    font-size: $smallTexte;
+  }
+  .base-texte {
+    font-size: 1rem;
+  }
+}

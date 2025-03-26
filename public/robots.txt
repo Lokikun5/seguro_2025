@@ -1,0 +1,10 @@
+User-agent: *
+Disallow:
+
+Disallow: /login
+Disallow: /register
+Disallow: /home
+Disallow: /admin
+Disallow: /dashboard
+
+Sitemap: https://villaseguro.org/sitemap.xml

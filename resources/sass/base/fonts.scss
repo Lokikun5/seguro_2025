@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('../../public/fonts/Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../../public/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto-Black';
+  src: url('../../public/fonts/Roboto/Roboto-Black.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('../../public/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto/Roboto-BoldItalic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../../public/fonts/Roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto/Roboto-LightItalic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto/Roboto-MediumItalic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../../public/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url('../../public/fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto/Roboto-ThinItalic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+.font-standard {
+  font-family: 'Raleway', sans-serif;
+}
+
+.font-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+.font-text {
+  font-family: 'Roboto', sans-serif;
+}
+

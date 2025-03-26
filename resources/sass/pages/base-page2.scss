@@ -1,0 +1,107 @@
+.content2{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+@mixin txtplusimg($height: 300px) {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    height: $height;
+    margin-top: 2rem;
+  
+    p {
+      font-size: 1.3rem;
+      line-height: 2rem;
+    }
+    ul{
+        font-size: 1.3rem;
+        li{
+            margin-bottom: 1rem;
+        }
+      }
+  
+    .bloc1,
+    .bloc2 {
+      width: 50%;
+      height: $height;
+    }
+  
+    .bloc1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  
+    .bloc2 img {
+      height: $height;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    @media (max-width: 1100px) {
+        flex-direction: column;
+        height: auto;
+    
+        .bloc1,
+        .bloc2 {
+          width: 100%;
+          height: auto;
+        }
+    
+        .bloc2 img {
+          height: auto;
+        }
+      }
+  }
+  .txtplusimg {
+    @include txtplusimg(300px);
+  }
+
+  .txtplusimg2 {
+    @include txtplusimg(550px);
+  }
+    
+
+.intro-section{
+    h3{
+        font-weight: 800;
+        text-align: center;
+    }
+}
+
+.price-bloc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+@mixin price-card($color: #0093C9){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    padding: 2rem;
+    color: white;
+    background-color: $color;
+    width: 150px;
+    height: 150px;
+
+}
+.price-card{
+    @include price-card(#0093C9);
+}
+.price-card2{
+    @include price-card(#EC8101);
+}
+.price-card3{
+    @include price-card(#A3610A);
+}
+
+.price-card4{
+    @include price-card(#7B2E00);
+}

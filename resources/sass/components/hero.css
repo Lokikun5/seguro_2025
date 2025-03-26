@@ -1,0 +1,9 @@
+.hero-paralax {
+  background-image: url("../../public/images/photos/seguro-hero.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/*# sourceMappingURL=hero.css.map */

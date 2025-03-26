@@ -1,0 +1,45 @@
+@import "../base/variable";
+
+.seguro-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  font-size: $smallTexte;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    padding-right: 30px;
+
+    .arrow {
+      border-color: white;
+      opacity: 1;
+      visibility: visible;
+      right: 10px;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    right: 20px;
+    display: inline-block;
+    margin-left: 10px;
+    width: 10px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(315deg);
+    transition: border-color 0.3s ease, opacity 0.3s ease, right 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+}

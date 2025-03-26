@@ -1,0 +1,46 @@
+@import "../base/variable";
+
+.nav-style{
+  font-family: Raleway;
+  letter-spacing: $letterSpacing;
+  font-size: $smallTexte;
+  white-space: nowrap;
+}
+
+.nav-custom-item {
+  position: relative;
+
+  .nav-custom-link {
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: black;
+      bottom: 0;
+      left: 50%;
+      transition: width 0.4s ease, left 0.4s ease;
+    }
+
+    &:hover::before {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+
+.ml-30-px{
+  margin-left: 30px;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030; /* au-dessus du contenu */
+  background-color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+}

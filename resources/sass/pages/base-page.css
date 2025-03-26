@@ -1,0 +1,17 @@
+.header-page {
+  display: flex;
+}
+
+.img-resident {
+  width: 50%;
+}
+.img-resident img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.residents-info {
+  width: 50%;
+}
+
+/*# sourceMappingURL=base-page.css.map */

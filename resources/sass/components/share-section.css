@@ -1,0 +1,12 @@
+.share-section {
+  padding: 2rem;
+}
+.share-section .share-section-cont {
+  display: flex;
+}
+.share-section .share-section-cont img {
+  width: 20px;
+  height: 20px;
+}
+
+/*# sourceMappingURL=share-section.css.map */
