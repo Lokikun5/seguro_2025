@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('noindex', 'noindex, nofollow')
 @section('title', 'Modifier un événement')
 
 @push('styles')

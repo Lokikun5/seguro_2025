@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('noindex', 'noindex, nofollow')
 
 @section('title', 'Gestion des événements')
 

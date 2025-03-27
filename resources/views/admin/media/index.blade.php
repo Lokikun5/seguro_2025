@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('noindex', 'noindex, nofollow')
 @section('content')
 <div class="admin-layout">
     @include('components.admin.sidebar')

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('noindex', 'noindex, nofollow')
 
 @section('title', 'Tableau de bord admin')
 
