@@ -2,6 +2,10 @@
 
 @section('title', 'Modifier un résident')
 
+@push('styles')
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+@endpush
+
 @section('content')
 <div class="admin-layout">
     @include('components.admin.sidebar')
@@ -74,12 +78,75 @@
             </div>
 
             <div class="form-check mb-4">
+                <input type="hidden" name="active" value="0">
                 <input class="form-check-input" type="checkbox" name="active" value="1" id="active" {{ old('active', $resident->active) ? 'checked' : '' }}>
                 <label class="form-check-label" for="active">Activer ce résident</label>
             </div>
 
-            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+            <hr>
+
+            <h4 class="mt-4">Ajouter des médias à la galerie</h4>
+
+            <div class="mb-3">
+                <label for="gallery_photo">Photos (vous pouvez en sélectionner plusieurs)</label>
+                <input type="file" name="gallery_photo[]" id="gallery_photo" accept="image/*" multiple>
+            </div>
+
+            <div class="mb-3">
+                <label for="gallery_video[]">Liens de vidéos (YouTube, Vimeo, etc.)</label>
+                <input type="url" name="gallery_video[]" class="form-control mb-2">
+                <input type="url" name="gallery_video[]" class="form-control mb-2">
+                <input type="url" name="gallery_video[]" class="form-control mb-2">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4">Mettre à jour</button>
         </form>
+
+        @if($resident->media->where('type', 'photo')->isNotEmpty())
+            <hr>
+            <h4 class="mt-4">Photos existantes</h4>
+            <div class="d-flex flex-wrap gap-3">
+                @foreach($resident->media->where('type', 'photo') as $photo)
+                    <div class="text-center">
+                        <img src="{{ asset('storage/media/photos/' . $photo->file_name) }}" alt="Photo" width="100">
+                        <form action="{{ route('admin.media.destroy', $photo) }}" method="POST" onsubmit="return confirm('Supprimer cette photo ?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger mt-2">Supprimer</button>
+                        </form>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
+        @if($resident->media->where('type', 'video')->isNotEmpty())
+            <hr>
+            <h4 class="mt-4">Vidéos existantes</h4>
+            <div class="d-flex flex-wrap gap-3">
+                @foreach($resident->media->where('type', 'video') as $video)
+                    <div class="text-center">
+                        <iframe width="200" height="120" src="{{ $video->file_name }}" frameborder="0" allowfullscreen></iframe>
+                        <form action="{{ route('admin.media.destroy', $video) }}" method="POST" onsubmit="return confirm('Supprimer cette vidéo ?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger mt-2">Supprimer</button>
+                        </form>
+                    </div>
+                @endforeach
+            </div>
+        @endif
     </main>
 </div>
 @endsection
+
+@push('scripts')
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+    FilePond.registerPlugin();
+
+    FilePond.create(document.querySelector('#gallery_photo'), {
+        allowMultiple: true,
+        storeAsFile: true // 👈 clé essentielle : FilePond ne fait pas d’upload AJAX ici
+    });
+</script>
+@endpush

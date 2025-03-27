@@ -21,6 +21,8 @@ class Resident extends Model
         'linkedin_slug',
         'instagram_slug',
         'active',
+        'meta_title',
+        'meta_description',
         'resident_slug'
     ];
 

@@ -38,6 +38,11 @@
   align-items: center;
 }
 
+.flex-clol {
+  display: flex;
+  flex-direction: column;
+}
+
 .user-name {
   display: flex;
   align-items: center;

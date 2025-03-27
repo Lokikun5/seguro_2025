@@ -14,7 +14,7 @@
     <section class="section-content">
         <h1>CERCLE DES AMIS DE LA VILLA SEGURO</h1>
         <h2>Un engagement collectif pour soutenir la création</h2>
-        <div class="txtplusimg">
+        <div class="txtplusimg px-4">
             <div class="bloc1">
                 <p><strong>CERCLE DES AMIS DE LA VILLA SEGURO </strong>a été créé en 2019 par les Amis de la Villa Seguro. Il compte une dizaine de
                     membres qui soutiennent les projets de résidence et de 

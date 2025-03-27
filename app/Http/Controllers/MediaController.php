@@ -72,8 +72,28 @@ class MediaController extends Controller
     }
 
     public function destroy(Media $media)
-    {
-        $media->delete();
-        return redirect()->route('admin.media.index')->with('success', 'Media supprimé.');
+{
+    // Par défaut, redirection vers la galerie
+    $redirectRoute = ['admin.media.index'];
+
+    // Si le média est lié à un résident, rediriger vers l'édition du résident
+    if ($media->resident_page_id) {
+        $redirectRoute = ['admin.residents.edit', $media->resident_page_id];
     }
+
+    // Supprimer le fichier s'il s'agit d'une image locale
+    if ($media->type === 'photo') {
+        $path = 'public/media/photos/' . $media->file_name;
+        if (\Storage::exists($path)) {
+            \Storage::delete($path);
+        }
+    }
+
+    $media->delete();
+
+    return redirect()->route(...$redirectRoute)
+        ->with('success', 'Média supprimé avec succès.');
+}
+
+
 }

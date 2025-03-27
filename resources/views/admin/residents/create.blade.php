@@ -2,6 +2,10 @@
 
 @section('title', 'Ajouter un résident')
 
+@push('styles')
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+@endpush
+
 @section('content')
 <div class="admin-layout">
     @include('components.admin.sidebar')
@@ -71,8 +75,35 @@
                 <label class="form-check-label" for="active">Activer ce résident</label>
             </div>
 
+            <hr>
+
+            <h4 class="mt-4">Galerie média</h4>
+
+            <div class="mb-3">
+                <label for="gallery_photo">Ajouter des photos (vous pouvez en sélectionner plusieurs)</label>
+                <input type="file" name="gallery_photo[]" id="gallery_photo" accept="image/*" multiple>
+            </div>
+
+            <div class="mb-3">
+                <label for="gallery_video[]">Ajouter des liens de vidéos (YouTube, Vimeo, etc.)</label>
+                <input type="url" name="gallery_video[]" class="form-control mb-2">
+                <input type="url" name="gallery_video[]" class="form-control mb-2">
+                <input type="url" name="gallery_video[]" class="form-control mb-2">
+            </div>
+
             <button type="submit" class="btn btn-primary">Enregistrer</button>
         </form>
     </main>
 </div>
 @endsection
+
+@push('scripts')
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+    FilePond.registerPlugin();
+    FilePond.create(document.querySelector('#gallery_photo'), {
+        allowMultiple: true,
+        storeAsFile: true
+    });
+</script>
+@endpush

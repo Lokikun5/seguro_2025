@@ -38,7 +38,11 @@
     <meta name="twitter:description" content="@yield('twitter:description', config('meta.default.description'))">
     <meta name="twitter:image" content="@yield('twitter:image', asset('images/logo/seguro-logo2-min.webp'))">
 
+    {{-- Styles compilés via Vite --}}
     @vite(['resources/sass/app.scss'])
+
+    {{-- Stack styles pour les composants externes --}}
+    @stack('styles')
 </head>
 <body>
 
@@ -51,7 +55,11 @@
     {{-- Footer global --}}
     @include('layouts.footer')
 
+    {{-- JS compilés via Vite --}}
     @vite(['resources/js/app.js'])
+
+    {{-- Stack scripts pour les plugins externes --}}
+    @stack('scripts')
 
 </body>
 </html>

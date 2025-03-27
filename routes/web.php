@@ -137,6 +137,7 @@ Route::get('/home', [HomeController::class, 'index'])
         Route::put('/residents/{resident}', [ResidentController::class, 'update'])->name('residents.update');
         Route::delete('/residents/{resident}', [ResidentController::class, 'destroy'])->name('residents.destroy');
         Route::patch('/residents/{resident}/toggle-active', [ResidentController::class, 'toggleActive'])->name('residents.toggle-active');
+        Route::delete('/admin/media/{media}', [MediaController::class, 'destroy'])->name('admin.media.destroy');
 
     });
     

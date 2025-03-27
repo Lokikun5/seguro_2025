@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resident;
+use App\Models\Media;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ResidentController extends Controller
 {
     public function index()
     {
-        $residents = Resident::where('active', true)
-            ->orderBy('created_at', 'desc')
-            ->get();
-
+        $residents = Resident::where('active', true)->orderBy('created_at', 'desc')->get();
         return view('residents.index', compact('residents'));
     }
 
@@ -40,10 +39,11 @@ class ResidentController extends Controller
             'linkedin_slug' => 'nullable|string|max:255',
             'instagram_slug' => 'nullable|string|max:255',
             'active' => 'required|boolean',
+            'gallery_photo.*' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'gallery_video.*' => 'nullable|url',
         ]);
 
-        $data = $request->except('profile_pic');
-
+        $data = $request->except('profile_pic', 'gallery_photo', 'gallery_video');
         $defaultPhoto = 'images/residents/seguro-default.webp';
 
         if ($request->hasFile('profile_pic')) {
@@ -53,7 +53,35 @@ class ResidentController extends Controller
             $data['profile_pic'] = $defaultPhoto;
         }
 
-        Resident::create($data);
+        $data['meta_title'] = $request->input('meta_title') ?? $data['first_name'] . ' ' . $data['last_name'];
+        $data['meta_description'] = $request->input('meta_description') ?? $data['introduce'];
+
+        $resident = Resident::create($data);
+
+        if ($request->hasFile('gallery_photo')) {
+            foreach ($request->file('gallery_photo') as $photo) {
+                $path = $photo->store('public/media/photos');
+                Media::create([
+                    'name' => 'Photo de ' . $resident->first_name,
+                    'type' => 'photo',
+                    'file_name' => basename($path),
+                    'resident_page_id' => $resident->id,
+                ]);
+            }
+        }
+
+        if ($request->gallery_video) {
+            foreach ($request->gallery_video as $url) {
+                if ($url) {
+                    Media::create([
+                        'name' => 'Vidéo de ' . $resident->first_name,
+                        'type' => 'video',
+                        'file_name' => $url,
+                        'resident_page_id' => $resident->id,
+                    ]);
+                }
+            }
+        }
 
         return redirect()->route('admin.residents.index')->with('success', 'Résident ajouté avec succès.');
     }
@@ -61,7 +89,7 @@ class ResidentController extends Controller
     public function show($slug)
     {
         $resident = Resident::where('resident_slug', $slug)->firstOrFail();
-        $media = $resident->media()->where('resident_page_id', $resident->id)->get();
+        $media = $resident->media()->get();
         return view('residents.show', compact('resident', 'media'));
     }
 
@@ -83,9 +111,11 @@ class ResidentController extends Controller
             'linkedin_slug' => 'nullable|string|max:255',
             'instagram_slug' => 'nullable|string|max:255',
             'active' => 'required|boolean',
+            'gallery_photo.*' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'gallery_video.*' => 'nullable|url',
         ]);
 
-        $data = $request->except('profile_pic');
+        $data = $request->except('profile_pic', 'gallery_photo', 'gallery_video');
         $defaultPhoto = 'images/residents/seguro-default.webp';
 
         if ($request->hasFile('profile_pic')) {
@@ -95,7 +125,35 @@ class ResidentController extends Controller
             $data['profile_pic'] = $defaultPhoto;
         }
 
+        $data['meta_title'] = $request->input('meta_title') ?? $data['first_name'] . ' ' . $data['last_name'];
+        $data['meta_description'] = $request->input('meta_description') ?? $data['introduce'];
+
         $resident->update($data);
+
+        if ($request->hasFile('gallery_photo')) {
+            foreach ($request->file('gallery_photo') as $file) {
+                $path = $file->store('public/media/photos');
+                Media::create([
+                    'name' => 'Photo de ' . $resident->first_name,
+                    'file_name' => basename($path),
+                    'type' => 'photo',
+                    'resident_page_id' => $resident->id,
+                ]);
+            }
+        }
+
+        if ($request->filled('gallery_video')) {
+            foreach ($request->gallery_video as $videoUrl) {
+                if ($videoUrl) {
+                    Media::create([
+                        'name' => 'Vidéo de ' . $resident->first_name,
+                        'file_name' => $videoUrl,
+                        'type' => 'video',
+                        'resident_page_id' => $resident->id,
+                    ]);
+                }
+            }
+        }
 
         return redirect()->route('admin.residents.index')->with('success', 'Résident mis à jour.');
     }
