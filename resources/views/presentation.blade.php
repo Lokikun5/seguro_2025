@@ -13,8 +13,8 @@
     <section class="section-content">
         <h1>QUI SOMMES-NOUS</h1>
         <h2 class="mx-5 no-marge">Un lieu de création, de réflexion et de transmission entre les cultures</h2>
-        <img src="{{ asset('images/photos/seguro-hero.webp') }}" alt="logo villa Seguro" class="img-page">
-        <p class="base-texte p-5 texte-center mobil-pad">
+        <img src="{{ asset('images/photos/seguro-hero.webp') }}" alt="logo villa Seguro" class="img-page img-fluid shadow rounded my-4">
+        <p class="base-texte p-1 texte-center mobil-pad">
         <span class="color-focus2">La Villa Seguro</span> est un lieu d'échanges interdisciplinaires 
         qui pour vocation de renforcer le dialogue interculturel 
         entre tous les imaginaires du monde. On discutera Patrimoine de l'Afrique: 

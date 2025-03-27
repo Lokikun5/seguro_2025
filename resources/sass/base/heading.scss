@@ -20,6 +20,10 @@ p{
 }
 .base-texte{
   font-size: $baseTexte;
+  max-width: 800px;
+  text-align: center;
+  line-height: 1.8;
+  color: #444;
 }
 .color-focus{
   color: $focusColor;
