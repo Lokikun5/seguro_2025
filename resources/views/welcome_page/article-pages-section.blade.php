@@ -6,7 +6,7 @@
             <a href="{{ route('page.show', ['slug' => $article->slug]) }}" title="découvrir {{ $article->title }}" class="article-card">
                 <div class="card-content">
                     <div class="contain">
-                        <img src="{{ $article->profile_pic }}" alt="{{ $article->title }}" class="card-image">
+                        <img src="{{ asset($article->profile_pic) }}" alt="{{ $article->title }}" class="card-image">
                     </div>
                     <p class="card-title">{{ $article->title }}</p>
                     <p>{{ $article->meta_description }}</p>

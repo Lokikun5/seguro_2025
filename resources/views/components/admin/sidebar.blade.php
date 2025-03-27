@@ -22,6 +22,13 @@
                 Résidents
             </a>
         </li>
+        <li class="{{ request()->routeIs('admin.events.index') ? 'active' : '' }}">
+            <a href="{{ route('admin.events.index') }}">
+                <span class="icon">📅</span>
+                Événements
+            </a>
+        </li>
+
 
     </ul>
 </aside>

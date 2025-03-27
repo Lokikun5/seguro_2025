@@ -24,7 +24,7 @@
     <section class="section-content">
         <div class="header-page">
             <div class="img-resident">
-                <img src="{{ $event->profile_pic }}" alt="{{ $event->title }}">
+                <img src="{{ asset($event->profile_pic) }}" alt="{{ $event->title }}">
             </div>
             <div class="texte-info">
                 <h1>{{ $event->title }}</h1>

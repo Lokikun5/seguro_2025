@@ -83,7 +83,7 @@ class ResidentController extends Controller
             }
         }
 
-        return redirect()->route('admin.residents.index')->with('success', 'Résident ajouté avec succès.');
+        return redirect()->route('admin.residents.index')->with('success', 'Résident ' . $resident->first_name . ' ' . $resident->last_name . ' ajouter.');
     }
 
     public function show($slug)
@@ -155,7 +155,7 @@ class ResidentController extends Controller
             }
         }
 
-        return redirect()->route('admin.residents.index')->with('success', 'Résident mis à jour.');
+        return redirect()->route('admin.residents.index')->with('success', 'Résident ' . $resident->first_name . ' ' . $resident->last_name . ' mis à jour.');
     }
 
     public function toggleActive(Request $request, Resident $resident)
@@ -167,6 +167,6 @@ class ResidentController extends Controller
     public function destroy(Resident $resident)
     {
         $resident->delete();
-        return redirect()->route('admin.residents.index')->with('success', 'Résident supprimé.');
+        return redirect()->route('admin.residents.index')->with('success', 'Résident ' . $resident->first_name . ' ' . $resident->last_name . ' supprimé.');
     }
 }

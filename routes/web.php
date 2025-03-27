@@ -137,6 +137,15 @@ Route::get('/home', [HomeController::class, 'index'])
         Route::put('/residents/{resident}', [ResidentController::class, 'update'])->name('residents.update');
         Route::delete('/residents/{resident}', [ResidentController::class, 'destroy'])->name('residents.destroy');
         Route::patch('/residents/{resident}/toggle-active', [ResidentController::class, 'toggleActive'])->name('residents.toggle-active');
+
+        Route::get('/events', [EventController::class, 'adminIndex'])->name('events.index');
+        Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+        Route::post('/events', [EventController::class, 'store'])->name('events.store');
+        Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+        Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
+        Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+        Route::patch('/events/{event}/toggle-active', [EventController::class, 'toggleActive'])->name('events.toggle-active');
+        
         Route::delete('/admin/media/{media}', [MediaController::class, 'destroy'])->name('admin.media.destroy');
 
     });
