@@ -25,7 +25,7 @@
         <p class="base-texte"><span class="color-focus2">La Villa Seguro</span>  est une fondation financée sur fonds 
         propres et soutenue par des bonnes volontés </p>
         <div class="flex-warp">
-            <a class="seguro-btn" href="{{ route('page.index') }}">
+            <a class="seguro-btn" href="{{ route('pages.index') }}">
             Découvrir nos articles
             <span class="arrow"></span>
             </a>

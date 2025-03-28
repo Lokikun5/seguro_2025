@@ -28,7 +28,11 @@
                 Événements
             </a>
         </li>
-
-
+        <li class="{{ request()->routeIs('admin.pages.index') ? 'active' : '' }}">
+            <a href="{{ route('admin.pages.index') }}">
+                <span class="icon">📄</span>
+                Pages
+            </a>
+        </li>
     </ul>
 </aside>

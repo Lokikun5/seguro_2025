@@ -85,6 +85,10 @@ class MediaController extends Controller
         $redirectRoute = ['admin.events.edit', $media->event_page_id];
     }
 
+    elseif ($media->page_id) {
+        $redirectRoute = ['admin.pages.edit', $media->page_id];
+    }
+
     // Supprimer le fichier s'il s'agit d'une image locale
     if ($media->type === 'photo') {
         $path = 'public/media/photos/' . $media->file_name;

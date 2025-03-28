@@ -23,7 +23,7 @@ Route::get('/resident/{slug}', [ResidentController::class, 'show'])->name('resid
 Route::get('/les-événements-de-la-resistance/', [EventController::class, 'index'])->name('events.index');
 Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
 Route::get('/page/{slug}',[PageController::class, 'show'])->name('page.show');
-Route::get('/article',[PageController::class, 'index'])->name('page.index');
+Route::get('/article',[PageController::class, 'index'])->name('pages.index');
 Route::get('/presentation-resistance', function () {
     return view('presentation');
 })->name('presentation');
@@ -63,7 +63,7 @@ Route::get('/home', [HomeController::class, 'index'])
             ->add(Url::create(route('welcome'))->setPriority(1.0)->setChangeFrequency('daily'))
             ->add(Url::create(route('residents.index'))->setPriority(0.9)->setChangeFrequency('weekly'))
             ->add(Url::create(route('events.index'))->setPriority(0.8)->setChangeFrequency('weekly'))
-            ->add(Url::create(route('page.index'))->setPriority(0.8)->setChangeFrequency('monthly'))
+            ->add(Url::create(route('pages.index'))->setPriority(0.8)->setChangeFrequency('monthly'))
             ->add(Url::create(route('presentation'))->setPriority(0.6)->setChangeFrequency('monthly'))
             ->add(Url::create(route('friends_circle'))->setPriority(0.6)->setChangeFrequency('monthly'))
             ->add(Url::create(route('become_resident'))->setPriority(0.6)->setChangeFrequency('monthly'))
@@ -145,6 +145,16 @@ Route::get('/home', [HomeController::class, 'index'])
         Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
         Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
         Route::patch('/events/{event}/toggle-active', [EventController::class, 'toggleActive'])->name('events.toggle-active');
+
+        // Pages
+        Route::get('/pages', [PageController::class, 'adminIndex'])->name('pages.index');
+        Route::get('/pages/create', [PageController::class, 'create'])->name('pages.create');
+        Route::post('/pages', [PageController::class, 'store'])->name('pages.store');
+        Route::get('/pages/{page}/edit', [PageController::class, 'edit'])->name('pages.edit');
+        Route::put('/pages/{page}', [PageController::class, 'update'])->name('pages.update');
+        Route::delete('/pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
+        Route::patch('/pages/{page}/toggle-active', [PageController::class, 'toggleActive'])->name('pages.toggle-active');
+
         
         Route::delete('/admin/media/{media}', [MediaController::class, 'destroy'])->name('admin.media.destroy');
 

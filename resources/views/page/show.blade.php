@@ -16,7 +16,7 @@
     <nav class="breadcrumb-container" aria-label="Fil d’Ariane">
         <ul class="breadcrumb">
             <li><a href="{{ route('welcome') }}">Accueil</a></li>
-            <li><a href="{{ route('page.index') }}">Les articles</a></li>
+            <li><a href="{{ route('pages.index') }}">Les articles</a></li>
             <li aria-current="page">{{ $page->title }}</li>
         </ul>
     </nav>

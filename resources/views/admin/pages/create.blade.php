@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('noindex', 'noindex, nofollow')
-@section('title', 'Ajouter un événement')
+
+@section('title', 'Ajouter une page')
 
 @push('styles')
 <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
@@ -11,7 +11,7 @@
     @include('components.admin.sidebar')
 
     <main class="admin-content">
-        <h1 class="mb-4">Ajouter un événement</h1>
+        <h1 class="mb-4">Ajouter une page</h1>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -23,70 +23,65 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.events.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.pages.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
                 <label for="title">Titre</label>
-                <input type="text" name="title" class="form-control" required>
+                <input type="text" name="title" class="form-control" value="{{ old('title') }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="meta_title">Meta Title Meta Titre (Longueur idéale : entre 50 et 60 caractères espaces inclus)</label>
-                <input type="text" name="meta_title" class="form-control" required>
+                <label for="meta_title">Meta Titre (Longueur idéale : entre 50 et 60 caractères espaces inclus)</label>
+                <input type="text" name="meta_title" class="form-control" value="{{ old('meta_title') }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="meta_description">Meta Description Meta Description ( Longueur idéale : entre 150 et 160 caractères)</label>
-                <input type="text" name="meta_description" class="form-control" required>
+                <label for="meta_description">Meta Description ( Longueur idéale : entre 150 et 160 caractères)</label>
+                <input type="text" name="meta_description" class="form-control" value="{{ old('meta_description') }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="slug">Slug (url de la page)</label>
-                <input type="text" name="slug" class="form-control" required>
+                <input type="text" name="slug" class="form-control" value="{{ old('slug') }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="start_date">Date de début</label>
-                <input type="date" name="start_date" class="form-control" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="performance">Performance</label>
-                <input type="text" name="performance" class="form-control" required>
+                <label for="type">Type de page</label>
+                <input type="text" name="type" class="form-control" value="{{ old('type') }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="introduce">Introduction</label>
-                <input type="text" name="introduce" class="form-control" required>
+                <input type="text" name="introduce" class="form-control" value="{{ old('introduce') }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="description">Description</label>
-                <textarea name="description" class="form-control" rows="5" required></textarea>
+                <textarea name="description" class="form-control" rows="5" required>{{ old('description') }}</textarea>
             </div>
 
             <div class="mb-3">
-                <label for="profile_pic">Image à la une</label>
+                <label for="profile_pic">Photo de profil</label>
                 <input type="file" name="profile_pic" class="form-control" accept="image/*">
             </div>
 
             <div class="form-check mb-4">
                 <input class="form-check-input" type="checkbox" name="active" value="1" id="active" checked>
-                <label class="form-check-label" for="active">Activer cet événement</label>
+                <label class="form-check-label" for="active">Activer cette page</label>
             </div>
 
             <hr>
 
-            <h4 class="mt-4">Ajouter des médias à la galerie</h4>
+            <h4 class="mt-4">Galerie média</h4>
 
             <div class="mb-3">
-                <label for="gallery_photo[]">Photos (vous pouvez en sélectionner plusieurs)</label>
-                <input type="file" name="gallery_photo[]" id="gallery_photo" class="form-control" accept="image/*" multiple>
+                <label for="gallery_photo">Ajouter des photos (vous pouvez en sélectionner plusieurs)</label>
+                <input type="file" name="gallery_photo[]" id="gallery_photo" accept="image/*" multiple>
             </div>
 
             <div class="mb-3">
-                <label for="gallery_video[]">Liens de vidéos (YouTube, Vimeo, etc.)</label>
+                <label for="gallery_video[]">Ajouter des liens de vidéos (YouTube, Vimeo, etc.)</label>
                 <input type="url" name="gallery_video[]" class="form-control mb-2">
                 <input type="url" name="gallery_video[]" class="form-control mb-2">
                 <input type="url" name="gallery_video[]" class="form-control mb-2">

@@ -18,7 +18,7 @@
             <p class="no-msg">Aucun article disponible pour le moment.</p>
         @endforelse
     </div>
-    <a class="seguro-btn my-5" href="{{ route('page.index') }}">
+    <a class="seguro-btn my-5" href="{{ route('pages.index') }}">
         Découvrir les articles
         <span class="arrow"></span>
     </a>
