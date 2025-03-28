@@ -48,7 +48,7 @@
         </div>
 
         <div class="resident-detail">
-            <p>{{ $resident->description }}</p>
+            {!! $resident->description !!}
         </div>
 
         <!-- Affichage de la galerie si des médias sont présents -->
