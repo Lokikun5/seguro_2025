@@ -1,6 +1,6 @@
 <aside class="section-content">
     <h2>Article </h2>
-    <p>Explorez notre galerie d’images, nos articles et réflexions autour des résidences et du monde artistique contemporain. </p>
+    <p class="max-width-text">Explorez notre galerie d’images, nos articles et réflexions autour des résidences et du monde artistique contemporain. </p>
     <div class="articles-list">
         @forelse($articles as $article)
             <a href="{{ route('page.show', ['slug' => $article->slug]) }}" title="découvrir {{ $article->title }}" class="article-card">

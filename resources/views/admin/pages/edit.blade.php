@@ -58,8 +58,10 @@
             </div>
 
             <div class="mb-3">
-                <label for="description">Description</label>
-                <textarea name="description" class="form-control" rows="5" required>{{ old('description', $page->description) }}</textarea>
+                <textarea name="description" class="form-control tinymce-editor" rows="5" required>
+                    {{ old('description', $page->description ?? '') }}
+                </textarea>
+                @include('components.admin.tinymce')
             </div>
 
             <div class="mb-3">

@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="resident-detail">
-            <p>{{ $event->description }}</p>
+            <p>{!! $event->description !!}</p>
         </div>
 
         @if($media->isNotEmpty())

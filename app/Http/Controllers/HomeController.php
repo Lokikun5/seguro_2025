@@ -23,7 +23,7 @@ class HomeController extends Controller
         ;
 
         $articles = Page::where('active', true)
-            ->where('type', 'article')
+            ->orderBy('created_at', 'desc')
             ->take(3)
             ->get(['title', 'profile_pic', 'slug' ,'meta_description','created_at' ]);
 

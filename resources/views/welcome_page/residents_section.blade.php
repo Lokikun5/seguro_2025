@@ -1,6 +1,6 @@
 <section class="section-content">
     <h2>Les nouveaux résidents</h2>
-    <p>Découvrez les artistes actuellement en résidence à la Villa Seguro.  
+    <p class="max-width-text">Découvrez les artistes actuellement en résidence à la Villa Seguro.  
     Chacun d’eux apporte son univers, ses disciplines et ses projets uniques.</p>
     <div class="list">
         @forelse($residents as $resident)

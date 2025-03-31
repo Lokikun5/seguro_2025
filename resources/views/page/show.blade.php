@@ -33,7 +33,7 @@
 
         <div class="resident-detail">
             <p>{{ $page->created_at->format('d F Y') }}</p>
-            <p>{{ $page->description }}</p>
+            {!! $page->description !!}
         </div>
 
         @if($media->isNotEmpty())
@@ -49,5 +49,5 @@
 
     <!-- Modale de la lightbox incluse ici -->
     @include('components.lightbox', ['media' => $media])
-    @include('components.share-page', ['title' => $page->meta_title])@include('components.share-page')
+    @include('components.share-page', ['title' => $page->meta_title])
 @endsection

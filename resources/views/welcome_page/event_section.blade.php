@@ -1,6 +1,6 @@
 <section class="section-content">
     <h2>Nos évènements</h2>
-    <p>La Villa Seguro accueille des performances, expositions, projections et rencontres tout au long de l’année.  
+    <p class="max-width-text">La Villa Seguro accueille des performances, expositions, projections et rencontres tout au long de l’année.  
         Rejoignez-nous pour célébrer la création sous toutes ses formes.
     </p>
     <div class="list">
