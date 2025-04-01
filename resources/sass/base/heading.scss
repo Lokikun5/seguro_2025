@@ -19,10 +19,10 @@ p{
   line-height: 1.5;
 }
 .base-texte{
-  font-size: $baseTexte;
-  max-width: 800px;
+  font-size: $baseTexte !important;
+  max-width: 1000px;
   text-align: center;
-  line-height: 1.8;
+  line-height: 1.8 !important;
   color: #444;
 }
 .color-focus{

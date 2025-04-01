@@ -2,7 +2,9 @@
 
 @section('content')
     @include('welcome_page.hero')
-    <main>
+    <main>  
+        @include('welcome_page.intro_section')
+        @include('components.split-section')
         @include('welcome_page.residents_section')
         @include('components.split-section')
         @include('welcome_page.event_section')
