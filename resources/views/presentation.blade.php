@@ -13,7 +13,7 @@
     <section class="section-content">
         <h1>QUI SOMMES-NOUS</h1>
         <h2 class="mx-5 no-marge">Un lieu de création, de réflexion et de transmission entre les cultures</h2>
-        <img src="{{ asset('images/photos/seguro-hero.webp') }}" alt="logo villa Seguro" class="img-page img-fluid shadow rounded my-4">
+        <img src="{{ asset('images/photos/seguro-hero.webp') }}" alt="expo villa Seguro" class="img-page img-fluid shadow rounded my-4">
         <p class="base-texte p-1 texte-center mobil-pad">
             Construite en 2018 au bord du lac Togo, dans la ville de Porto-Séguro, Agbodrafo. 
             La <span class="color-focus">Villa Séguro</span> est un lieu d’échanges interdisciplinaires qui a pour vocation de renforcer 
@@ -34,7 +34,7 @@
                 </p>
             </div>
             <div class="bloc2">
-                <img src="{{ asset('images/photos/WhatsApp Image 2025-03-31 à 16.41.42_023c46f8.jpg') }}" alt="logo villa Seguro" class="img-page img-fluid shadow rounded my-4">
+                <img src="{{ asset('images/photos/exposition-seguro.webp') }}" alt="logo villa Seguro" class="img-page img-fluid shadow rounded my-4">
             </div>
         </div>
         <p class="base-texte">
@@ -46,7 +46,7 @@
         <h2>LES OBJECTIFS DE LA RÉSIDENCE</h2>
         <div class="txtplusimg2">
             <div class="bloc1">
-                <img src="{{ asset('images/photos/WhatsApp Image 2025-03-31 à 16.41.44_a5a3413d.jpg') }}" alt="logo villa Seguro" class="img-page img-fluid shadow rounded my-4">
+                <img src="{{ asset('images/photos/jardin-seguro.webp') }}" alt="jardin de la villa Seguro" class="img-page img-fluid shadow rounded my-4">
             </div>
             <div class="bloc2">
                 <ul>
@@ -68,7 +68,7 @@
             </div>
         </div>
         <h2>LES BÉNÉFICIAIRES DE LA RÉSIDENCE</h2>
-        <img src="{{ asset('images/photos/WhatsApp Image 2025-03-31 à 16.38.59_14233587.jpg') }}" alt="logo villa Seguro" class="img-page img-fluid shadow rounded my-4">
+        <img src="{{ asset('images/photos/seguro-reunion.webp') }}" alt="Seguro réunion" class="img-page img-fluid shadow rounded my-4">
         <p class="base-texte">
             La résidence réunira, autour de 4 formateurs, 26 stagiaires (16 comédiens 
             professionnels et amateurs, ainsi que 10 chanteurs confirmés) vivant au Togo. 
