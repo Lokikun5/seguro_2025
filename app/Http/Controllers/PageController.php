@@ -90,7 +90,12 @@ class PageController extends Controller
     {
         $page = Page::where('slug', $slug)->firstOrFail();
         $media = $page->media()->get();
-        return view('page.show', compact('page', 'media'));
+        $otherPages = Page::where('id', '!=', $page->id)
+        ->where('active', true)
+        ->inRandomOrder()
+        ->limit(6)
+        ->get();
+        return view('page.show', compact('page', 'media','otherPages'));
     }
 
     public function edit(Page $page)
@@ -165,4 +170,5 @@ class PageController extends Controller
         $page->delete();
         return redirect()->route('admin.pages.index')->with('success', 'Page supprimée avec succès.');
     }
+    
 }

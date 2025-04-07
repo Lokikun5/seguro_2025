@@ -17,7 +17,7 @@
         <ul class="breadcrumb">
             <li><a href="{{ route('welcome') }}">Accueil</a></li>
             <li><a href="{{ route('pages.index') }}">Les articles</a></li>
-            <li aria-current="page">{{ $page->title }}</li>
+            <li class="color-focus2" aria-current="page">{{ $page->title }}</li>
         </ul>
     </nav>
     <section class="section-content">
@@ -50,4 +50,25 @@
     <!-- Modale de la lightbox incluse ici -->
     @include('components.lightbox', ['media' => $media])
     @include('components.share-page', ['title' => $page->meta_title])
+    @include('components.split-section')
+
+    <section class="related-items section-content">
+        <h2 class="text-center">Découvrez aussi</h2>
+        <div class="related-items-wrapper">
+            @foreach($otherPages as $other)
+                <div class="related-card">
+                    <img src="{{ asset($other->profile_pic) }}" alt="{{ $other->title }}">
+                    <div class="related-card-body">
+                        <h3>{{ $other->title }}</h3>
+                        <p>{{ Str::limit($other->introduce, 100) }}</p>
+                        <a href="{{ route('page.show', $other->slug) }}" class="seguro-btn">
+                            Découvrir l'article
+                            <span class="arrow"></span>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
 @endsection

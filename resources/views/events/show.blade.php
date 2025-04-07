@@ -18,7 +18,7 @@
         <ul class="breadcrumb">
             <li><a href="{{ route('welcome') }}">Accueil</a></li>
             <li><a href="{{ route('events.index') }}">Les événements</a></li>
-            <li aria-current="page">{{ $event->title  }}</li>
+            <li class="color-focus2" aria-current="page">{{ $event->title  }}</li>
         </ul>
     </nav>
     <section class="section-content">

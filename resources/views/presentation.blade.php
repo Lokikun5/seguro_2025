@@ -7,7 +7,7 @@
     <nav class="breadcrumb-container" aria-label="Fil d’Ariane">
         <ul class="breadcrumb">
             <li><a href="{{ route('welcome') }}">Accueil</a></li>
-            <li aria-current="page">QUI SOMMES-NOUS</li>
+            <li class="color-focus2" aria-current="page">QUI SOMMES-NOUS</li>
         </ul>
     </nav>
     <section class="section-content">

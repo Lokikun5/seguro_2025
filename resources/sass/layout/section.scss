@@ -107,3 +107,45 @@
 .scroll-btn.right {
   right: 2rem;
 }
+
+.related-items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.related-card {
+  width: 300px;
+  background: #f8f9fa;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+
+  &:hover {
+      transform: translateY(-6px);
+  }
+
+  img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+  }
+
+  .related-card-body {
+      padding: 1rem;
+
+      h3 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+      }
+
+      p {
+          font-size: 0.95rem;
+          color: #555;
+          margin-bottom: 1rem;
+      }
+  }
+}

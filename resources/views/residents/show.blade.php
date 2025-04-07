@@ -21,7 +21,7 @@
         <ul class="breadcrumb">
             <li><a href="{{ route('welcome') }}">Accueil</a></li>
             <li><a href="{{ route('residents.index') }}">Les résidents</a></li>
-            <li aria-current="page">{{ $resident-> first_name }} {{ $resident-> last_name }}</li>
+            <li class="color-focus2" aria-current="page">{{ $resident-> first_name }} {{ $resident-> last_name }}</li>
         </ul>
     </nav>
     <section class="section-content">
@@ -67,4 +67,26 @@
     @include('components.lightbox', ['media' => $media])
 
     @include('components.share-page', ['title' => $resident->meta_title])
+    @include('components.split-section')
+
+    <section class="related-items section-content">
+        <h2 class="text-center">Découvrez aussi</h2>
+        <div class="related-items-wrapper">
+            @foreach($otherResidents as $other)
+                <div class="related-card">
+                    <img src="{{ asset($other->profile_pic) }}" alt="{{ $other->full_name ?? $other->first_name }}">
+                    <div class="related-card-body">
+                        <h3>{{ $other->first_name }} {{ $other->last_name }}</h3>
+                        <p>{{ Str::limit($other->introduce, 100) }}</p>
+                        <a href="{{ route('residents.show', $other->resident_slug) }}" class="seguro-btn">
+                            Voir le profil
+                            <span class="arrow"></span>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+
 @endsection

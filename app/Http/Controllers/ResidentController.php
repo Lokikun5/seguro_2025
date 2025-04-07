@@ -90,7 +90,14 @@ class ResidentController extends Controller
     {
         $resident = Resident::where('resident_slug', $slug)->firstOrFail();
         $media = $resident->media()->get();
-        return view('residents.show', compact('resident', 'media'));
+
+        $otherResidents = Resident::where('id', '!=', $resident->id)
+        ->where('active', true)
+        ->inRandomOrder()
+        ->limit(6)
+        ->get();
+
+        return view('residents.show', compact('resident', 'media', 'otherResidents'));
     }
 
     public function edit(Resident $resident)
