@@ -10,6 +10,7 @@ use App\Http\Controllers\MediaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\UserController;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use App\Models\Resident;
@@ -114,8 +115,21 @@ Route::get('/home', [HomeController::class, 'index'])
     })->middleware(['auth'])->name('admin.dashboard');
     
     Route::get('/user/dashboard', function () {
-        return 'Bienvenue utilisateur';
+        return view('user.dashboard');
     })->middleware(['auth'])->name('user.dashboard');
+
+    Route::prefix('user')->name('user.')->middleware(['auth'])->group(function () {
+      
+        Route::get('/profile/edit', [UserController::class, 'edit'])->name('profile.edit');
+        Route::put('/profile/update', [UserController::class, 'update'])->name('profile.update');
+
+        Route::get('/devenir-resident', [App\Http\Controllers\UserController::class, 'becomeResident'])->name('become-resident');
+        Route::post('/devenir-resident', [App\Http\Controllers\UserController::class, 'submitResidentRequest'])->name('become-resident.submit');
+
+
+    });
+    
+    
     
     Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
@@ -158,5 +172,7 @@ Route::get('/home', [HomeController::class, 'index'])
         
         Route::delete('/admin/media/{media}', [MediaController::class, 'destroy'])->name('admin.media.destroy');
 
+        Route::put('/resident-requests/{id}', [AdminController::class, 'updateResidentRequest'])->name('resident-requests.update');
+        Route::post('/users', [AdminController::class, 'createUser'])->name('users.store');
     });
     
